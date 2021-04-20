@@ -12,6 +12,7 @@ def load_data(path, features):
 
 
 def filter_by_feature(data, feature, values):
+    """splits the data into 2 dicts based on if feature gets a value in values in each entry"""
     length = len(data[feature])
     data1 = {}
     data2 = {}

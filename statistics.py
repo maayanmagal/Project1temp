@@ -3,6 +3,7 @@ import data as data_lib
 
 
 def sum(values):
+    """finds the sum of values"""
     s = 0
     for num in values:
         s += num
@@ -10,11 +11,13 @@ def sum(values):
 
 
 def mean(values):
+    """finds the mean value of values"""
     s = sum(values)
     return s / len(values)
 
 
 def sort(values):
+    """sort values in ascenting order"""
     length = len(values)
     for i in range(length):
         max_value = values[0]
@@ -29,6 +32,7 @@ def sort(values):
 
 
 def median(values):
+    """finds the median of values"""
     length = len(values)
     new_values = values.copy()
     sort(new_values)
