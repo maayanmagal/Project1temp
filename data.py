@@ -28,6 +28,7 @@ def filter_by_feature(data, feature, values):
 
 
 def print_details(data, features, statistic_functions):
+    """prints the result of the statistic functions on a list of features."""
     for feature in features:
         print("{}: ".format(feature), end="")
         feat_list = data[feature]
