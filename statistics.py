@@ -1,5 +1,10 @@
 import math
 import data as data_lib
+WHOLE = 10
+DECIMAL = 1.0
+INCRAMENT = 0.5
+TWO = 2
+EDGE = 1
 
 
 def sum(values):
@@ -36,10 +41,10 @@ def median(values):
     length = len(values)
     new_values = values.copy()
     sort(new_values)
-    if len(new_values) % 2 == 0:
-        return (new_values[length // 2 - 1] + new_values[length // 2]) / 2
+    if len(new_values) % TWO == 0:
+        return (new_values[length // TWO - 1] + new_values[length // TWO]) / TWO
     else:
-        return new_values[math.ceil((length-1) / 2)]
+        return new_values[math.ceil((length-1) / TWO)]
 
 
 def population_statistics(feature_description, data, treatment, target, threshold, is_above, statistic_functions):
@@ -47,10 +52,10 @@ def population_statistics(feature_description, data, treatment, target, threshol
     on a segment of the data where treatment is corelated to the therehold value"""
     new_values = data[treatment].copy()
     sort(new_values)
-    min=(int)(new_values[0]*10)
+    min=(int)(new_values[0]*WHOLE)
     values = []
-    for x in range(min, threshold * 10+1, 5):
-        values.append(x/10.0)
+    for x in range(min, threshold * WHOLE+EDGE, int(INCRAMENT*WHOLE)):
+        values.append(x/(WHOLE*DECIMAL))
     data1, data2 = data_lib.filter_by_feature(data, treatment, values)
     if is_above:
         data_lib.print_details(data2, {target}, statistic_functions)
