@@ -61,14 +61,17 @@ def population_statistics(feature_description, data, treatment, target, threshol
     :return:
     """
 
-    new_values = data[treatment].copy()
-    sort(new_values)
-    min=(int)(new_values[0]*WHOLE)
-    values = []
-    for x in range(min, threshold * WHOLE+EDGE, int(INCRAMENT*WHOLE)):
-        values.append(x/(WHOLE*DECIMAL))
+    #new_values = data[treatment].copy()
+    #sort(new_values)
+    #min=(int)(new_values[0]*WHOLE)
+    values=[]
+    #for x in range(min,threshold*WHOLE+EDGE,int(INCRAMENT*WHOLE)):
+    for x in data[treatment]:
+        if(x<=threshold):
+            values.append(x)
+            #values.append(x/(WHOLE*DECIMAL))
     data1, data2 = data_lib.filter_by_feature(data, treatment, values)
     if is_above:
-        data_lib.print_details(data2, {target}, statistic_functions)
+        data_lib.print_details(data2,{target},statistic_functions)
     else:
-        data_lib.print_details(data1, {target}, statistic_functions)
+        data_lib.print_details(data1,{target},statistic_functions)
