@@ -1,6 +1,7 @@
 import math
 import data as data_lib
 
+
 def sum(values):
     s = 0
     for num in values:
@@ -38,6 +39,8 @@ def median(values):
 
 
 def population_statistics(feature_description, data, treatment, target, threshold, is_above, statistic_functions):
+    """prints the results of the statistics functions on the target parameter
+    on a segment of the data where treatment is corelated to the therehold value"""
     new_values = data[treatment].copy()
     sort(new_values)
     min=(int)(new_values[0]*10)
