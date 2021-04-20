@@ -48,8 +48,19 @@ def median(values):
 
 
 def population_statistics(feature_description, data, treatment, target, threshold, is_above, statistic_functions):
-    """prints the results of the statistics functions on the target parameter
-    on a segment of the data where treatment is corelated to the therehold value"""
+    """
+    prints the results of the statistics functions on the target parameter
+    on a segment of the data by relation between treatment and threshold
+    :param feature_description: title
+    :param data: the data for analysis
+    :param treatment: the field to sort the data by threshold
+    :param target: the field to be used for the statistic functions
+    :param threshold: the threshold for sorting the data on treatment by
+    :param is_above: decides if the data used is above threshold or not
+    :param statistic_functions: the functions to analise the filtered target data by
+    :return:
+    """
+
     new_values = data[treatment].copy()
     sort(new_values)
     min=(int)(new_values[0]*WHOLE)
