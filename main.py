@@ -45,14 +45,14 @@ def main(argv):
     data1, data2 = data_lib.filter_by_feature(data,"season",[WINTER])
     data1, data2 = data_lib.filter_by_feature(data1, "is_holiday", [HOLIDAY])
     print("Winter holiday records:")
-    statistics.population_statistics("Winter holiday records",data1,"t1","cnt",T_THRESHOLD,False,statistic_func)
+    statistics.population_statistics("Winter holiday records",data1,"t1",["cnt"],T_THRESHOLD,False,statistic_func)
     print("Winter weekday records:")
-    statistics.population_statistics("Winter weekday records", data2, "t1", "cnt", T_THRESHOLD, False, statistic_func)
+    statistics.population_statistics("Winter weekday records", data2, "t1", ["cnt"], T_THRESHOLD, False, statistic_func)
     print("If t1>13.0, then:")
     print("Winter holiday records:")
-    statistics.population_statistics("Winter holiday records", data1, "t1", "cnt", T_THRESHOLD, True, statistic_func)
+    statistics.population_statistics("Winter holiday records", data1, "t1", ["cnt"], T_THRESHOLD, True, statistic_func)
     print("Winter weekday records:")
-    statistics.population_statistics("Winter weekday records", data2, "t1", "cnt", T_THRESHOLD, True, statistic_func)
+    statistics.population_statistics("Winter weekday records", data2, "t1", ["cnt"], T_THRESHOLD, True, statistic_func)
 
 
 if __name__ == '__main__':

@@ -1,8 +1,5 @@
 import math
-import data as data_lib
-WHOLE = 10
-DECIMAL = 1.0
-INCRAMENT = 0.5
+from data import filter_by_feature,print_details
 TWO = 2
 EDGE = 1
 
@@ -64,13 +61,14 @@ def population_statistics(feature_description, data, treatment, target, threshol
     #new_values = data[treatment].copy()
     #sort(new_values)
     #min=(int)(new_values[0]*WHOLE)
-    values=[]
+    #values=[]
     #for x in range(min,threshold*WHOLE+EDGE,int(INCRAMENT*WHOLE)):
-    for x in data[treatment]:
-        if(x<=threshold): values.append(x)
+    #for x in data[treatment]:
+        #if(x<=threshold): values.append(x)
+    values =[x for x in data[treatment] if (x<=threshold)]
             #values.append(x/(WHOLE*DECIMAL))
-    data1, data2 = data_lib.filter_by_feature(data, treatment, values)
-    data_lib.print_details(data2,{target},statistic_functions) if is_above else data_lib.print_details(data1,{target},statistic_functions)
+    data1, data2 = filter_by_feature(data, treatment, values)
+    print_details(data2,target,statistic_functions) if is_above else print_details(data1,target,statistic_functions)
     #if is_above:
     #    data_lib.print_details(data2,{target},statistic_functions)
     #else:
