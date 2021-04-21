@@ -1,9 +1,14 @@
 import math
-from data import filter_by_feature,print_details
+from data import filter_by_feature as filter
+from data import print_details as print_dt
 
 
 def sum(values):
-    """finds the sum of values"""
+    """
+    the numbers to use for calculations
+    :param values: the numbers to use for calculations
+    :return: the sum
+    """
     s = 0
     for num in values:
         s += num
@@ -11,13 +16,21 @@ def sum(values):
 
 
 def mean(values):
-    """finds the mean value of values"""
+    """
+    finds the mean value of values
+    :param values: the numbers to use for calculations
+    :return: the mean
+    """
     s = sum(values)
     return s / len(values)
 
 
 def sort(values):
-    """sort values in ascending order"""
+    """
+    sort values in ascenting order
+    :param values: the numbers to use for calculations
+    :return: a sorted list
+    """
     length = len(values)
     for i in range(length):
         max_value = values[0]
@@ -32,7 +45,12 @@ def sort(values):
 
 
 def median(values):
-    """finds the median of values"""
+    """
+    finds the median of values
+    :param values: the numbers to use for calculations
+    :return: the median
+    """
+
     length = len(values)
     new_values = values.copy()
     sort(new_values)
@@ -44,9 +62,11 @@ def median(values):
 
 def population_statistics(feature_description, data, treatment, target, threshold, is_above, statistic_functions):
     """
-    prints the results of the statistics functions on the target parameter based on a split of the data
+    prints the results of the statistics functions on the target parameter based on a split of the data.
 
-    the split is based on whether the treatment line in the data is higher then the threshold
+    the split is based on whether the treatment line in the data is higher then the threshold.
+    note: filter_by_feature has been defined as filter,
+    and print details has been defined as print_dt to reduce line length.
     :param feature_description: title
     :param data: the data for analysis
     :param treatment: the field to sort the data by threshold
@@ -56,7 +76,4 @@ def population_statistics(feature_description, data, treatment, target, threshol
     :param statistic_functions: the functions to analise the filtered target data by
     :return:
     """
-
-    values =[x for x in data[treatment] if (x<=threshold)]
-    data1, data2 = filter_by_feature(data, treatment, values)
-    print_details(data2,target,statistic_functions) if is_above else print_details(data1,target,statistic_functions)
+    print_dt(filter(data,treatment,[x for x in data[treatment]if(x<=threshold)^is_above])[0],target,statistic_functions)
