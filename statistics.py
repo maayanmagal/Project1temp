@@ -17,7 +17,7 @@ def mean(values):
 
 
 def sort(values):
-    """sort values in ascenting order"""
+    """sort values in ascending order"""
     length = len(values)
     for i in range(length):
         max_value = values[0]

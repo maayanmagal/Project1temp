@@ -3,6 +3,7 @@ import sys
 
 
 def load_data(path, features):
+    """extracts data from csv file into dictionary, returns the sub-dictionary that contains the feats from 'features'."""
     df = pandas.read_csv(path)
     data = df.to_dict(orient="list")
     new_data = {}
