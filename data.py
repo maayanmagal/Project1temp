@@ -1,5 +1,4 @@
 import pandas
-import sys
 
 
 def load_data(path, features):
@@ -20,7 +19,7 @@ def load_data(path, features):
 def filter_by_feature(data, feature, values):
     """
     splits the data into 2 dicts based on if feature gets a value in values in each entry.
-    :param data: the inputed data
+    :param data: the inputted data
     :param feature: the feature to sort by
     :param values: which values should be put in which dict
     :return: 2 dicts
@@ -43,7 +42,7 @@ def filter_by_feature(data, feature, values):
 def print_details(data, features, statistic_functions):
     """
     prints the result of the statistic functions on a list of features.
-    :param data: the inputed data
+    :param data: the inputted data
     :param features: the features to activated the functions on
     :param statistic_functions: the statistic analysis to do on the data
     :return:
