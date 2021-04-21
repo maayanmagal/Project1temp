@@ -27,7 +27,7 @@ def mean(values):
 
 def sort(values):
     """
-    sort values in ascenting order
+    sort values in ascending order
     :param values: the numbers to use for calculations
     :return: a sorted list
     """
