@@ -1,7 +1,5 @@
 import math
 from data import filter_by_feature,print_details
-TWO = 2
-EDGE = 1
 
 
 def sum(values):
@@ -38,10 +36,10 @@ def median(values):
     length = len(values)
     new_values = values.copy()
     sort(new_values)
-    if len(new_values) % TWO == 0:
-        return (new_values[length // TWO - 1] + new_values[length // TWO]) / TWO
+    if len(new_values) % 2 == 0:
+        return (new_values[length // 2 - 1] + new_values[length // 2]) / 2
     else:
-        return new_values[math.ceil((length-1) / TWO)]
+        return new_values[math.ceil((length-1) / 2)]
 
 
 def population_statistics(feature_description, data, treatment, target, threshold, is_above, statistic_functions):
@@ -59,18 +57,6 @@ def population_statistics(feature_description, data, treatment, target, threshol
     :return:
     """
 
-    #new_values = data[treatment].copy()
-    #sort(new_values)
-    #min=(int)(new_values[0]*WHOLE)
-    #values=[]
-    #for x in range(min,threshold*WHOLE+EDGE,int(INCRAMENT*WHOLE)):
-    #for x in data[treatment]:
-        #if(x<=threshold): values.append(x)
     values =[x for x in data[treatment] if (x<=threshold)]
-            #values.append(x/(WHOLE*DECIMAL))
     data1, data2 = filter_by_feature(data, treatment, values)
     print_details(data2,target,statistic_functions) if is_above else print_details(data1,target,statistic_functions)
-    #if is_above:
-    #    data_lib.print_details(data2,{target},statistic_functions)
-    #else:
-    #    data_lib.print_details(data1,{target},statistic_functions)
