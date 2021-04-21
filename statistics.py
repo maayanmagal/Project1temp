@@ -46,8 +46,9 @@ def median(values):
 
 def population_statistics(feature_description, data, treatment, target, threshold, is_above, statistic_functions):
     """
-    prints the results of the statistics functions on the target parameter
-    on a segment of the data by relation between treatment and threshold
+    prints the results of the statistics functions on the target parameter based on a split of the data
+
+    the split is based on whether the treatment line in the data is higher then the threshold
     :param feature_description: title
     :param data: the data for analysis
     :param treatment: the field to sort the data by threshold
